@@ -20,15 +20,15 @@ data = json.loads(response)
 
 videoIds = [video['id'] for video in data['items']]
 
-path = options.country + '/' + datetime.datetime.today().strftime('%d-%m-%Y-%H-%i-%s') + '.txt'
+path = options.country + '/' + datetime.datetime.today().strftime('%d-%m-%Y-%H-%s') + '.txt'
 
 payload = json.dumps({
 	'message': path,
-  'content': base64.b64encode("\n".join(videoIds))
+	'content': base64.b64encode("\n".join(videoIds))
 })
 
 print requests.put(
-  'https://api.github.com/repos/ophobe/test/contents/' + path,
-  data=payload,
-  auth=(env.get('GITHUB_USERNAME'), env.get('GITHUB_ACCESS_TOKEN'))
+	'https://api.github.com/repos/ophobe/test/contents/' + path,
+	data=payload,
+	auth=(env.get('GITHUB_USERNAME'), env.get('GITHUB_ACCESS_TOKEN'))
 )
