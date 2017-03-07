@@ -28,7 +28,7 @@ payload = json.dumps({
 })
 
 print requests.put(
-	'https://api.github.com/repos/ophobe/test/contents/' + path,
+	'https://api.github.com/repos/ophobe/trending-youtube/contents/' + path,
 	data=payload,
 	auth=(env.get('GITHUB_USERNAME'), env.get('GITHUB_ACCESS_TOKEN'))
 )
