@@ -20,7 +20,7 @@ data = json.loads(response)
 
 videoIds = [video['id'] for video in data['items']]
 
-path = options.country + '/' + datetime.datetime.today().strftime('%d-%m-%Y-%H-%s') + '.txt'
+path = options.country + '/' + datetime.datetime.today().strftime('%d-%m-%Y') + '.txt'
 
 payload = json.dumps({
 	'message': path,
